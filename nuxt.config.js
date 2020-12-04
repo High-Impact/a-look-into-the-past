@@ -23,7 +23,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '@/assets/css/hamburger.css',
+    '@/assets/css/vars.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -31,7 +34,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+      '@nuxtjs/dotenv',
+      '@nuxtjs/tailwindcss'
+  ],
   /*
    ** Build configuration
    */
