@@ -1,33 +1,37 @@
 <template>
-    <div>
-        <div class="py-8 bg-gray-100">
-            <div class="container mx-auto px-12 flex justify-between">
-                <NuxtLink to="/" class="text-4xl font-black ">
+    <div class="overflow-hidden relative min-h-screen">
+        <div class="py-4 border-bottom-2 bg-yellow-300">
+            <div class="container mx-auto px-12 flex items-center justify-between">
+                <NuxtLink to="/" class="text-4xl text-blue-700 font-black ">
                     <h1 v-if="$route.path == '/'">Home</h1>
                     <h1 v-else>{{$route.path}}</h1>
                 </NuxtLink>
                 <div class="transform rotate-180 z-10">
-                    <button v-on:click="toggleActive" class="hamburger hamburger--arrow focus:outline-none" v-bind:class="{ 'is-active' : isActive }" type="button">
+                    <button v-on:click="toggleActive" class="hamburger hamburger--elastic focus:outline-none p-0" v-bind:class="{ 'is-active' : isActive }" type="button">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                         </span>
                     </button>
                 </div>
-                <div class="nav absolute bg-white h-screen w-screen" v-bind:class="{ 'active' : isActive }">
-                    <div class="container mx-auto px-12 pt-12">
-                        <h2 class="font-black text-xl">A look into the past</h2>
-                        <hr class="my-8">
-                        <ul class="font-bold text-4xl leading-relaxed">
-                            <li>Home</li>
-                            <li>Questions</li>
-                            <li>Albums</li>
-                        </ul>
+                <div class="nav absolute bg-white h-screen w-screen z-9" v-bind:class="{ 'active' : isActive }">
+                    <div class="cheat absolute bg-white h-screen w-screen z-9">
+                        <div class="container mx-auto px-12 pt-12 z-9">
+                            <h2 class="font-black text-xl">A look into the past</h2>
+                            <hr class="my-8">
+                            <ul class="font-bold text-4xl leading-relaxed">
+                                <li>Home</li>
+                                <li>Questions</li>
+                                <li>Albums</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-12 mt-8">
-            <slot></slot>
+        <div class="container mx-auto px-12 pt-8 lower">
+            <div class="">
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -49,12 +53,32 @@ export default {
 
 <style>
     .nav {
-        left: 100%;
-        transition:var(--trans-norm);
-    }
-    .nav.active {
-        transition:var(--trans-norm);
         top:0;
         left:0;
+        opacity:0;
+        transition:375ms steps(60);
+        visibility:hidden;
+    }
+    .nav.active {
+        visibility:visible;
+        opacity:.95;
+    }
+
+    .nav .cheat{
+        left: 100%;
+        top:0;
+        transition:375ms steps(60);
+    }
+    .nav.active .cheat{
+        left:0;
+    }
+    .hamburger-box span,
+    .hamburger-box :before,
+    .hamburger-box :after {
+        background:rgba(29, 78, 216, 1);    
+    }
+
+    .lower {
+        z-index:-1;
     }
 </style>
