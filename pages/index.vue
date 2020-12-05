@@ -1,13 +1,15 @@
 <template>
   <page>
       <div class="">
+      
         <div class="">
           <h2 class="font-bold text-2xl mb-2">Howdy! Y'all</h2>
           <p class="text-lg ">This is <em>a look into the a past</em>. The goal is provide a digital archive of our lives. The site is currently broken up into 2 sections.</p>
           <hr class=" mt-4">
         </div>
-        <card />
-        <card />
+        
+        <card img="https://alip.cp.highimpact.design/storage/uploads/2020/12/05/5fcbfb4c145aequestions-sm.jpg" title="Questions" desc="A collection of all the questions" link="/questions" />
+      
       </div>
   </page>
 </template>

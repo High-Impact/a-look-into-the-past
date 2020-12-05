@@ -1,22 +1,24 @@
 <template>
-    <div class="bg-gray-100 flex rounded overflow-hidden mt-4 shadow-sm">
-        <img 
-            src="https://storage.googleapis.com/stateless-lj-stg-highimpact-de/2020/10/Oct_1-1024x773.png" 
-            class="max-w-1/4"
-        />
-        <div class="min-w-full p-4">
+    <NuxtLink :to="link" class="bg-gray-100 flex rounded overflow-hidden mt-4 shadow-sm">
+        <div class="">
+            <img :src="img" />
+        </div>
+        <div class=" p-4">
             <div class="">
-                <h2 class="text-lg font-bold">I'm the card's title</h2>
-                <p>Hello, I'm the description</p>
+                <h2 class="text-lg font-bold">{{title}}</h2>
+                <p>{{desc}}</p>
             </div>
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 <script>
 export default {
     props: {
-        
+        img:String,
+        title:String,
+        desc:String,
+        link:String
     }
 }
 </script>
