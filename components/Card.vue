@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .card_image {
     z-index:-1;
     position:relative;

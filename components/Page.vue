@@ -3,7 +3,7 @@
         <div class="py-4 shadow-sm">
             <div class="container mx-auto px-12 flex items-center justify-between">
                 <NuxtLink to="/" class="text-4xl text-gray-700 font-black capitalize ">
-                    <h1 v-if="path">{{path}}</h1>
+                    <h1 v-if="path">{{path.split('/').pop()}}</h1>
                     <h1 v-else>Home</h1>
                 </NuxtLink>
                 <div class="transform rotate-180 z-10">
