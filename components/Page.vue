@@ -1,10 +1,10 @@
 <template>
     <div class="overflow-hidden relative min-h-screen">
-        <div class="py-4 border-bottom-2 bg-yellow-300">
+        <div class="py-4 shadow-sm">
             <div class="container mx-auto px-12 flex items-center justify-between">
-                <NuxtLink to="/" class="text-4xl text-blue-700 font-black ">
-                    <h1 v-if="$route.path == '/'">Home</h1>
-                    <h1 v-else>{{$route.path}}</h1>
+                <NuxtLink to="/" class="text-4xl text-gray-700 font-black capitalize ">
+                    <h1 v-if="path">{{path}}</h1>
+                    <h1 v-else>Home</h1>
                 </NuxtLink>
                 <div class="transform rotate-180 z-10">
                     <button v-on:click="toggleActive" class="hamburger hamburger--elastic focus:outline-none p-0" v-bind:class="{ 'is-active' : isActive }" type="button">
@@ -19,9 +19,19 @@
                             <h2 class="font-black text-xl">A look into the past</h2>
                             <hr class="my-8">
                             <ul class="font-bold text-4xl leading-relaxed">
-                                <li>Home</li>
-                                <li>Questions</li>
-                                <li>Albums</li>
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <NuxtLink to="/albums">
+                                        Albums <fa :icon="['fas', 'dollar-sign']" />
+                                    </NuxtLink>
+                                </li>
+                                <li>
+                                    <NuxtLink to="/questions">
+                                        Questions
+                                    </NuxtLink>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -40,7 +50,8 @@
 export default {
     data() {
         return {
-            isActive:false
+            isActive:false,
+            path:this.$route.path.replace('/', '')
         }
     },
     methods: {
@@ -75,7 +86,7 @@ export default {
     .hamburger-box span,
     .hamburger-box :before,
     .hamburger-box :after {
-        background:rgba(29, 78, 216, 1);    
+        background:#374151;    
     }
 
     .lower {

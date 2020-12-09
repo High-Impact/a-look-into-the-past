@@ -1,21 +1,21 @@
 <template>
   <page>
-      <h1>Questions</h1>
+      <h1>2018</h1>
   </page>
 </template>
 
 <script>
 
-import Page from '../components/Page'
-import Card from '../components/Card'
+import Page from '../../components/Page'
+import Card from '../../components/Card'
 
 export default {
   components: {
     Page,
     Card
   },
-  data() {
-  },
+  // data() {
+  // },
   created() {
   },
   methods: {

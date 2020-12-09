@@ -36,7 +36,16 @@ export default {
    */
   modules: [
       '@nuxtjs/dotenv',
-      '@nuxtjs/tailwindcss'
+      '@nuxtjs/tailwindcss',
+      ['nuxt-fontawesome', {
+        component: 'fa',
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['faDollarSign']
+          }
+        ]
+      }]
   ],
   /*
    ** Build configuration
