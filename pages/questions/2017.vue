@@ -1,7 +1,7 @@
 <template>
   <page>
         <p>Here are all the questions that we came up with in early 2017, on our back from Boston, we stopped in Ipswitch Ohio.</p>
-        <question  v-for="question in questions" :question="question.question" />
+        <question  v-for="question in questions" :question="question.question" :key="question._id" />
   </page>
 </template>
 
@@ -21,7 +21,7 @@ export default {
       }
   },
   created() {
-      fetch(process.env.datastore+"api/collections/get/questions?token="+process.env.api)
+      fetch(process.env.datastore+"api/collections/get/questions?filter[group]=5fca350a38623703340002ab&token="+process.env.api)
         .then(response => { 
             if(response.ok){
                 return response.json()    

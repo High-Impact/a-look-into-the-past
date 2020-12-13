@@ -13,9 +13,9 @@
                         </span>
                     </button>
                 </div>
-                <div class="nav absolute bg-white h-screen w-screen z-9" v-bind:class="{ 'active' : isActive }">
-                    <div class="cheat absolute bg-white h-screen w-screen z-9">
-                        <div class="container mx-auto px-12 pt-12 z-9">
+                <div class="nav absolute bg-white h-screen w-screen" v-bind:class="{ 'active' : isActive }">
+                    <div class="cheat absolute bg-white h-screen w-screen">
+                        <div class="container mx-auto px-12 pt-12">
                             <h2 class="font-black text-xl">A look into the past</h2>
                             <hr class="my-8">
                             <ul class="font-bold text-4xl leading-relaxed">
@@ -24,7 +24,7 @@
                                 </li>
                                 <li>
                                     <NuxtLink to="/albums">
-                                        Albums <fa :icon="['fas', 'dollar-sign']" />
+                                        Albums
                                     </NuxtLink>
                                 </li>
                                 <li>
@@ -38,8 +38,11 @@
                 </div>
             </div>
         </div>
+        <div v-if="path" class="container mx-auto px-12 pt-4">
+            <button @click="backAPage" class="text-gray-500"><fa icon="arrow-left"  /> Back</button>
+        </div>
         <div class="container mx-auto px-12 pt-8 lower">
-            <div class="">
+            <div class="pb-12">
                 <slot></slot>
             </div>
         </div>
@@ -57,6 +60,9 @@ export default {
     methods: {
         toggleActive: function() {
             this.isActive = !this.isActive
+        },
+        backAPage: function() {
+            window.history.go(-1);
         }
     }
 }
@@ -69,6 +75,7 @@ export default {
         opacity:0;
         transition:375ms steps(60);
         visibility:hidden;
+        z-index:9;
     }
     .nav.active {
         visibility:visible;

@@ -42,7 +42,7 @@ export default {
         imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faDollarSign']
+            icons: ['faArrowLeft', 'faSortAmountUpAlt', 'faSortAmountDownAlt', 'faFilter', 'faChevronDown', 'faTimes']
           }
         ]
       }]

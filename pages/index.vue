@@ -3,8 +3,8 @@
       <div class="">
       
         <div class="">
-          <h2 class="font-bold text-2xl mb-2">Howdy! Y'all</h2>
-          <p class="text-lg ">This is <em>a look into the a past</em>. The goal is provide a digital archive of our lives. The site is currently broken up into 2 sections.</p>
+          <h2 class="font-bold text-2xl mb-2">Hey!</h2>
+          <p class="text-lg ">You've found <em>a look into the a past</em>. This is the one stop shop for our digital archive. The site is currently broken up into 2 sections.</p>
         </div>
         
         <card img="https://alip.cp.highimpact.design/storage/uploads/2020/12/07/5fcea751ba422On-the-water-2.jfif" title="Albums" desc="A collection of all our photos and videos" link="/albums" />
@@ -27,6 +27,7 @@ export default {
   data() {
     return {
       api: process.env.api,
+      datastor: process.env.datastore,
       data: 'loading'
     }
   },

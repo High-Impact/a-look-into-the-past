@@ -1,9 +1,9 @@
 <template>
     <div class=" border flex rounded overflow-hidden mt-4 shadow-sm card" v-bind:class="{ 'disabled' : isActive }" v-on:click="toggleActive">
-        <div class="card_image p-4">
-            <div class="lights_out font-black text-sm flex justify-center border">
+        <div class="card_image p-4 flex items-center">
+            <div class="lights_out font-black text-sm flex justify-center border w-full relative">
                 <div class="cross">
-                    <template v-if="isActive">X</template>
+                    <fa v-if="isActive" class="" icon="times"/>
                 </div>
             </div>
         </div>
@@ -42,11 +42,10 @@ export default {
 }
 .disabled {
     opacity:.5;
-    background:#ededed;
+    /* background:#ededed; */
+    position:relative;
 }
 .card_image {
-    z-index:-1;
-    position:relative;
     width:20%;
     overflow:hidden;
 }
@@ -58,6 +57,11 @@ export default {
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+
+}
+
+.disabled .lights_out {
+    background:white;
 }
 .card_copy {
     width:80%;
